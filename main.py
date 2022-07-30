@@ -12,7 +12,7 @@ def main():
     #Change the ff:
 
     vote_max = 10 #Maximum number of votes per account. Power votes has max of 20
-    emailx = f'lalaxmnbnx{gg}@gmail.com' #Email address base - come up with anything.
+    emailx = f'oumixaya{gg}@gmail.com' #Email address base - come up with anything.
 
     while gg < 20001:
         try:
