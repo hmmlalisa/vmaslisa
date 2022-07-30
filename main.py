@@ -1,4 +1,3 @@
-import os
 from time import sleep
 
 from selenium import webdriver
@@ -14,7 +13,6 @@ def main():
     #Change the ff:
 
     vote_max = 10 #Maximum number of votes per account. Power votes has max of 20
-    emailx = f'oumixaya{gg}@gmail.com' #Email address base - come up with anything.
 
     while gg < 20001:
         try:
@@ -32,7 +30,7 @@ def main():
 
             text = WebDriverWait(driver, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '//*[@id="mtv-vmasModal"]/div/div/div/div/div/div/form/div[1]/input')))
-            text.send_keys(emailx)
+            text.send_keys(f'{emailx}{gg}@gmail.com')
 
             login = WebDriverWait(driver, 20).until(EC.visibility_of_element_located(
                 (By.XPATH, '//*[@id="mtv-vmasModal"]/div/div/div/div/div/div/form/div[2]/button'))).click()
@@ -85,8 +83,12 @@ while True:
 
         txt_file = open("bookmark.txt", "r")
         bkm = txt_file.read()
-        print(bkm)
         txt_file.close()
+
+        eml_file = open("ranemail.txt", "r")
+        emailx = eml_file.read()
+        eml_file.close()
+
         main()
         driver.quit()
         continue
