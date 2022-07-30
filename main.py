@@ -6,6 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import chromedriver_autoinstaller
+
 def main():
 
     gg = int(bkm) + 1
@@ -67,10 +69,16 @@ def main():
 
 while True:
     try:
-        PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-        DRIVER_BIN = os.path.join(PROJECT_ROOT, "chromedriver")
+        #PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+        #DRIVER_BIN = os.path.join(PROJECT_ROOT, "chromedriver")
 
-        driver = webdriver.Chrome(executable_path=DRIVER_BIN)
+        #driver = webdriver.Chrome(executable_path=DRIVER_BIN)
+
+        chromedriver_autoinstaller.install()
+
+        driver = webdriver.Chrome()
+        #driver.get("http://www.python.org")
+        #assert "Python" in driver.title
 
         driver.set_window_size(1024, 600)
         driver.maximize_window()
